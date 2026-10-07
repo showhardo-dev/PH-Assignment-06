@@ -10,9 +10,12 @@ interface WorkoutContextType {
   setSave: React.Dispatch<React.SetStateAction<Iworkout[]>>;
 }
 
-export const workoutContext = createContext<WorkoutContextType | undefined>(
-  undefined
-);
+export const workoutContext = createContext<WorkoutContextType>({
+  plan: [],
+  setPlan:() => {},
+  save: [],
+  setSave:() => {}
+});
 
 const WorkoutProvider = ({ children }: { children: ReactNode }) => {
   const [plan, setPlan] = useState<Iworkout[]>([]);
