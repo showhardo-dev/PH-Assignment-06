@@ -8,7 +8,7 @@ First, run the development server:
 npm run dev
 
 ```
-## workout
+## Project name: Workout
 ## Short Description
 workout is a simple workout library app where you can browse a collection of lifts, check out how to perform each one, and build your own plan for the day. I built it to keep workouts organized in one place, so you can pick exercises, save the ones you like for later, and see at a glance how many minutes and calories your plan adds up to.
 
