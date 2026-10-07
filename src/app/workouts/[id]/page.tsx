@@ -5,11 +5,16 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 const getWorkout = async (id: string) => {
-  const res = await fetch(`https://api.api-store.workers.dev/api/fitlog/${id}`);
-
-  if (!res.ok) return null;
-
-  return res.json();
+try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/fitlog/${id}`  // note the / before ${id}
+    );
+    if (!res.ok) return null;
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;   // ⚠️ return null, not [] — your component checks `if (!workout) notFound()`
+  }
 };
 
 const WorkoutDetailsPage = async ({
