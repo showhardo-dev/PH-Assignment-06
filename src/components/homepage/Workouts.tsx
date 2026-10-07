@@ -4,9 +4,16 @@ import { Iworkout } from '@/types/workout.type';
 
 
 const getWorkouts = async () => {
-  const response = await fetch('https://api.api-store.workers.dev/api/fitlog');
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/api/fitlog`
+    );
+    if (!response.ok) return [];
+    return response.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
 };
 
 const Workouts = async () => {
