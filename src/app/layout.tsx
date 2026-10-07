@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'FitLog',
+  title: 'Workout',
   description: 'Train with intent. Log every set.',
 };
 
